@@ -82,6 +82,16 @@ export default function SubwayCanvas({ focus }: Props) {
         drawStations(ctx, line, geom.cum, geom.total, w, h);
       }
 
+      // Draw endpoint station labels (origin + terminus per line)
+      for (const id of LINE_ORDER) {
+        const line = LINES[id];
+        const dim = focus !== "all" && focus !== id;
+        if (dim) continue;
+        const geom = lineGeom.get(id);
+        if (!geom) continue;
+        drawEndpointLabels(ctx, line, geom.cum, geom.total, w, h);
+      }
+
       // Active trains (deterministic from nowSec)
       const { trains } = getActiveTrains(nowSec);
 
@@ -214,6 +224,45 @@ function drawTrail(
     ctx.lineTo(b.x, b.y);
     ctx.stroke();
   }
+}
+
+function drawEndpointLabels(
+  ctx: CanvasRenderingContext2D,
+  line: SubwayLine,
+  cum: number[],
+  total: number,
+  w: number,
+  h: number,
+) {
+  // Mobile is too narrow for two endpoint labels per line — skip below 768px
+  if (w < 768) return;
+  if (line.stations.length < 2) return;
+
+  const start = line.stations[0];
+  const end = line.stations[line.stations.length - 1];
+  const startP = sampleAt(line, cum, total, w, h, start.position);
+  const endP = sampleAt(line, cum, total, w, h, end.position);
+
+  const prevAlign = ctx.textAlign;
+  const prevBaseline = ctx.textBaseline;
+
+  ctx.textAlign = "center";
+  ctx.textBaseline = "alphabetic";
+
+  // Kanji (line color, slightly brighter)
+  ctx.fillStyle = withAlpha(line.color, 0.75);
+  ctx.font = '11px "Hiragino Mincho ProN", "Yu Mincho", serif';
+  ctx.fillText(start.name, startP.x, startP.y - 18);
+  ctx.fillText(end.name, endP.x, endP.y - 18);
+
+  // Romaji (muted mono, smaller, beneath)
+  ctx.fillStyle = withAlpha(line.color, 0.5);
+  ctx.font = '9px ui-monospace, "SF Mono", Menlo, monospace';
+  ctx.fillText(start.romaji, startP.x, startP.y - 7);
+  ctx.fillText(end.romaji, endP.x, endP.y - 7);
+
+  ctx.textAlign = prevAlign;
+  ctx.textBaseline = prevBaseline;
 }
 
 function drawTrainDot(
