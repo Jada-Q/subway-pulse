@@ -5,10 +5,10 @@ Tokyo's subway lines, drawn as five colored arcs across a black canvas, with tra
 <p align="center">
   <img src="docs/preview/all-lines.png"   width="32%" alt="All 5 lines — Tokyo Metro" />
   <img src="docs/preview/yamanote.png"    width="32%" alt="Yamanote line focus" />
-  <img src="docs/preview/marunouchi.png"  width="32%" alt="Marunouchi line focus" />
+  <img src="docs/preview/chiyoda.png"     width="32%" alt="Chiyoda line focus" />
 </p>
 
-<p align="center"><em>Five lines together (Yamanote · Marunouchi · Ginza · Hibiya · Chiyoda) · Yamanote focus mode · Marunouchi focus mode. Each dot is a train moving along its line; the trail behind it is its path over the last ~30 seconds.</em></p>
+<p align="center"><em>All five lines together · Yamanote (yellow-green) ring focus · Chiyoda (teal-green) line focus. Each dot is a train; the trail behind it is its path over the last ~30 seconds.</em></p>
 
 **Live**: [subway-pulse-2026-05-07.vercel.app](https://subway-pulse-2026-05-07.vercel.app)
 
