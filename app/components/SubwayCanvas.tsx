@@ -155,12 +155,18 @@ function drawStations(
   w: number,
   h: number,
 ) {
-  ctx.fillStyle = withAlpha(line.color, 0.45);
+  ctx.strokeStyle = withAlpha(line.color, 0.55);
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "#000";
   for (const station of line.stations) {
     const p = sampleAt(line, cum, total, w, h, station.position);
+    // Hollow ring: small black fill punches a hole in the line, ring outlines it.
     ctx.beginPath();
-    ctx.arc(p.x, p.y, 1.4, 0, Math.PI * 2);
+    ctx.arc(p.x, p.y, 2.4, 0, Math.PI * 2);
     ctx.fill();
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 2.4, 0, Math.PI * 2);
+    ctx.stroke();
   }
 }
 

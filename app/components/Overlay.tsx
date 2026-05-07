@@ -96,6 +96,16 @@ export default function Overlay({ focus }: Props) {
             </span>
           </div>
         </div>
+        <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.18em] opacity-55">
+          <span className="inline-flex items-center gap-1.5">
+            <span className="inline-block h-2 w-2 rounded-full bg-white shadow-[0_0_4px_rgba(255,255,255,0.7)]" />
+            train
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <span className="inline-block h-2 w-2 rounded-full border border-white/70 bg-black" />
+            station
+          </span>
+        </div>
         <div className="text-[10px] uppercase tracking-[0.25em] opacity-40">
           {DATA_MODE_LABEL[DATA_MODE]}
         </div>
