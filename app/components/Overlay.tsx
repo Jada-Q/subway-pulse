@@ -75,6 +75,9 @@ export default function Overlay({ focus }: Props) {
             ? "5 lines · Yamanote · Marunouchi · Ginza · Hibiya · Chiyoda"
             : `focus · ${focusLabel(focus)}`}
         </div>
+        <div className="mt-3 whitespace-nowrap text-[11px] italic opacity-45">
+          — also Tide Pixels · Sky Traffic · Bay Ships
+        </div>
       </div>
 
       <div className="absolute right-6 top-6 text-right font-serif md:right-10 md:top-10">

@@ -105,6 +105,14 @@ Polyline shapes stay hand-drawn (geographic accuracy isn't the point); only trai
 
 ---
 
+## Elsewhere
+
+- [Tide Pixels](https://github.com/Jada-Q/tide-pixels) — real-time ocean canvas (sky color, sun/moon, tide, lunar phase)
+- [Sky Traffic](https://github.com/Jada-Q/sky-traffic) — live aircraft trails over your city's airspace
+- [Bay Ships](https://github.com/Jada-Q/bay-ships) — ship lanes through major harbors (procedural demo)
+
+---
+
 ## License
 
 MIT — do whatever you want.
