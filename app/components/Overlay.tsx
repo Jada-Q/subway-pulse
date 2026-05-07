@@ -76,7 +76,7 @@ export default function Overlay({ focus }: Props) {
             : `focus · ${focusLabel(focus)}`}
         </div>
         <div className="mt-3 whitespace-nowrap text-[11px] italic opacity-45">
-          — also Tide Pixels · Sky Traffic · Bay Ships
+          — also Tide Pixels · Sky Traffic · Bay Ships · Quake Globe
         </div>
       </div>
 
