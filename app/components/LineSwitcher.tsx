@@ -13,11 +13,13 @@ const ITEMS: Array<{ key: FocusMode; label: string; color: string }> = [
 ];
 
 export default function LineSwitcher({ active }: { active: FocusMode }) {
-  const [show, setShow] = useState(false);
+  const [hidden, setHidden] = useState(false);
   useEffect(() => {
-    setShow(new URLSearchParams(window.location.search).get("embed") === "app");
+    if (new URLSearchParams(window.location.search).get("embed") === "app") {
+      setHidden(true);
+    }
   }, []);
-  if (!show) return null;
+  if (hidden) return null;
 
   return (
     <div
