@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { LINES, LINE_ORDER, type FocusMode } from "@/lib/lines";
 
 const ITEMS: Array<{ key: FocusMode; label: string; color: string }> = [
@@ -12,6 +13,12 @@ const ITEMS: Array<{ key: FocusMode; label: string; color: string }> = [
 ];
 
 export default function LineSwitcher({ active }: { active: FocusMode }) {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    setShow(new URLSearchParams(window.location.search).get("embed") === "app");
+  }, []);
+  if (!show) return null;
+
   return (
     <div
       className="pointer-events-none fixed z-20 select-none
