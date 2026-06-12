@@ -1,6 +1,7 @@
 import SubwayCanvas from "./components/SubwayCanvas";
 import Overlay from "./components/Overlay";
 import LineSwitcher from "./components/LineSwitcher";
+import Bgm from "./components/Bgm";
 import LineLegend from "./components/LineLegend";
 import TamakiSprite from "./components/TamakiSprite";
 import { resolveFocus, type UrlParams } from "@/lib/lines";
@@ -20,6 +21,7 @@ export default async function Home({
       <LineLegend focus={focus} />
       <Overlay focus={focus} />
       <LineSwitcher active={focus} />
+      <Bgm focus={focus} />
       <TamakiSprite />
     </main>
   );
